@@ -1,0 +1,30 @@
+/*Write the class AddElements here*/
+template <class T>
+class AddElements {
+
+	T value1;
+		public:
+			AddElements(T x) {
+
+				value1 = x;
+				//return(add());
+			}
+	
+public:		
+			T add(T x) {
+				return x + value1;
+			}
+};
+
+template<>
+class AddElements <string> {
+	string element;
+public:
+	AddElements(string f) {
+		element = f;
+	}
+public:
+	string concatenate(string z) {
+		return element + z;
+	}
+};

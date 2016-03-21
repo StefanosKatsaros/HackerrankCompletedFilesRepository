@@ -1,0 +1,32 @@
+#include <algorithm>
+#include <stdio.h>
+#include <cctype>
+#include <string>
+#include <iostream>
+using namespace std;
+
+const std::string alphabet("abcdefghijklmnopqrstuvwxyz");
+
+bool is_pangram(std::string s)
+{	
+	std::transform(s.begin(), s.end(), s.begin(), ::tolower);
+	std::sort(s.begin(), s.end());
+	return std::includes(s.begin(), s.end(), alphabet.begin(), alphabet.end());
+}
+
+int main()
+{	
+	
+	string input;
+	getline(cin, input);
+	int length = input.length();
+	std::string::iterator end_pos = std::remove(input.begin(), input.end(), ' ');
+	input.erase(end_pos, input.end());
+
+	if (is_pangram(input) == 1) {
+		cout << "pangram" << endl;
+	}
+	else {
+		cout << "not pangram" << endl;
+	}
+}

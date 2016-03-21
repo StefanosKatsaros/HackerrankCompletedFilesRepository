@@ -1,0 +1,12 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+class Solution {
+    static void Main(String[] args) {
+        
+string x = Console.ReadLine(), y = Console.ReadLine();
+Console.WriteLine(Enumerable.Range(0, 26).Select(i => (char)(i + 'a')).Sum(c => Math.Abs(x.Count(cA => cA == c) - y.Count(cB => cB == c))));
+        
+    }
+}

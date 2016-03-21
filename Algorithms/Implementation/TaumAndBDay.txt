@@ -1,0 +1,45 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+	int t;
+	cin >> t;
+	for (int a0 = 0; a0 < t; a0++) {
+		int black;
+		int white;
+		cin >> black >> white;
+		long priceB;
+		long priceW;
+		long z;
+		long total = 0;
+		cin >> priceB >> priceW >> z;
+
+		while (white != 0 || black != 0) {
+			if (priceW + z < priceB && black != 0) {
+				total += black * (priceW + z);
+				black = 0;
+			}
+			else if (priceB + z < priceW && white != 0) {
+				total += white * (priceB + z);
+				white = 0;
+			}
+			else if (black != 0) {
+				total += black * priceB;
+				black = 0;
+			}
+			else if (white != 0) {
+				total += white * priceW;
+				white = 0;
+			}
+
+			
+		}
+		cout << total << endl;
+	}
+	return 0;
+}
+

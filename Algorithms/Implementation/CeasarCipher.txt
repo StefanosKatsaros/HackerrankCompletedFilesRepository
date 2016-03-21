@@ -1,0 +1,27 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+	int N;
+	char ch;
+	string s;
+
+	cin >> N;
+	cin >> s;
+	cin >> N;
+
+	for (char &c : s) {
+		if (isalpha(c)) {
+			ch = isupper(c) ? 'A':'a';
+			c = ch + (c - ch + N) % 26;
+		}
+	}
+	cout << s << endl;
+
+	return 0;
+}
